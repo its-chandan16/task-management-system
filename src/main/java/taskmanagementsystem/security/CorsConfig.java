@@ -1,29 +1,35 @@
 package taskmanagementsystem.security;
 
-import org.springframework.web.filter.CorsFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.filter.CorsFilter;
+
+import java.util.List;
 
 @Configuration
-@EnableWebMvc
 public class CorsConfig {
-
-    private static final Long MAX_AGE = 3600L;
-    private static final int CORS_FILTER_ORDER = -102;
 
     @Bean
     public CorsFilter corsFilter() {
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.addAllowedOrigin("http://localhost:3000");
-        corsConfiguration.addAllowedHeader("*");
-        corsConfiguration.addAllowedMethod("*");
 
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", corsConfiguration);
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+
+        // ✅ Allowed frontend origins
+        config.setAllowedOrigins(List.of(
+                "http://localhost:3000",
+                "https://silly-speculoos-be194e.netlify.app"
+        ));
+
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("*");
+
+        UrlBasedCorsConfigurationSource source =
+                new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", config);
+
         return new CorsFilter(source);
     }
 }
