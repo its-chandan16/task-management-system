@@ -21,7 +21,7 @@ public class CorsConfig {
         config.setAllowedOrigins(List.of(
                 "http://localhost:3000",
                 "http://localhost:5173",
-                "https://silly-speculoos-be194e.netlify.app"
+                "https://task-management-system-chandan.netlify.app"
         ));
 
         config.setAllowedHeaders(List.of("*"));
