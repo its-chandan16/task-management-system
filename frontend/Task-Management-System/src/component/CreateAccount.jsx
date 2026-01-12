@@ -3,6 +3,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import { registerApi } from "../service/AuthApiService";
 import { useNavigate } from "react-router-dom";
 import "../css/tasks.css";
+import loginImage from "../assets/loginPage.jpg";
+
 
 
 const CreateAccount = () => {
@@ -83,7 +85,7 @@ const CreateAccount = () => {
         <Row className="align-items-center">
           <Col md={6} className="text-center">
             <img
-              src="/src/assets/loginPage.jpg"
+              src={loginImage}
               alt="Login Page"
               className="img-fluid"
             />
