@@ -1,7 +1,9 @@
 import axios from "axios";
 import { getBasicAuth } from "./AuthApiService";
 
-const API_BASE_URL = "http://localhost:8080/api/v1/tasks";
+const API_BASE_URL =
+  "https://task-management-system-production-8d2d.up.railway.app/api/v1/tasks";
+
 
 // Global response error logger
 axios.interceptors.response.use(
