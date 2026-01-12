@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const authApiClient = axios.create({
-  baseURL: 'http://localhost:8080/api/auth',
+  baseURL: "https://task-management-system-production-8d2d.up.railway.app/api/auth",
 });
 
 // Combine username and password into a single object for loginApi
